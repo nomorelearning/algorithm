@@ -1,31 +1,26 @@
-n = int(input())
-ai = list(map(int,input().split()))
-bi = list(map(int,input().split()))
+import sys
+sys.stdin = open('test.txt', 'r')
 
+T = int(input())
 
-def check_next(lst, idx):
-    if lst[idx + 1] != 1:
-        return idx + 1
-    else:
-        idx += 1
-        check_next(lst, idx)
-        
-diff = [0]*n
-for i in range(n):
-    if ai[i] != bi[i]:
-        diff[i] += 1
+for t in range(1,T+1):
+    n = int(input())
+    ai = list(map(int,input().split()))
+    bi = list(map(int,input().split()))
 
-def find_diff(diff, i, n):
-    while i < n:
-        if diff[i] == 1:
-            return i
+    i = n-1
+    count = 0
+    
+    while i > 0:
+        if ai[i] == bi[i]:
+            if ai[i-1] != bi[i-1]:
+                count += 1
         else:
-            i += 1
-
-result = 0
-idx = 0
-while idx < n:
-    idx = find_diff(diff, idx, n)
-    result += 1
-    if idx != n:
-        idx = check_next(diff, idx)
+            if ai[i-1] == bi[i-1]:
+                count += 1
+        i -= 1
+    
+    if ai != bi and count == 0:
+        count = 1
+        
+    print(f'# {t} {count}')
