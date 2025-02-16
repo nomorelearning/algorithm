@@ -1,0 +1,3 @@
+
+sticks = list(input())
+
