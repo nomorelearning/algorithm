@@ -1,23 +1,24 @@
-import sys
-sys.stdin = open('test.txt')
-
+# import sys
+# sys.stdin = open('test.txt')
+#
 # T = int(input())
 # for t in range(1,T+1):
 #     n = int(input())
 #     arr = [list(map(int,input().split())) for _ in range(n)]
+#     # 부분집합 만들기(길이가 N/2)
+#     comb = []
+#     for i in range(1<<n):
+#         cnt = 0
+#         hap = []
+#         hap2 = []
+#         for j in range(n):
+#             if i & (1<<j):
+#                 if cnt == n/2:
+#                     break
+#                 hap.append(j)
 #
-#     ingre_idx = []       # 모든 재료 인덱스 넣기
-#     for i in range(n-1):
-#         for j in range(i+1,n):
-#             ingre_idx.append((i,j))
-#
-#     min_gap = 1e9
-#     for r1, c1 in ingre_idx:
-#         for idx2 in ingre_idx:
-#             if r1 not in idx2 and c1 not in idx2:
-#                 r2, c2 = idx2
-#                 print(r1, c1, r2, c2)
-#                 gap = abs(arr[r1][c1] + arr[c1][r1] - arr[r2][c2] - arr[c2][r2])
-#                 if gap < min_gap:
-#                     min_gap = gap
-#     print(min_gap)
+#         if hap in hap2:
+#             continue
+#         hap2.append([x for x in range(n) if x not in hap])
+#         comb.append(hap)
+#     for r in comb
